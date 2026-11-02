@@ -23,7 +23,7 @@ Start at each changed file under `src/games/`. Follow every colour, font and siz
 
 Report a game that breaks one of these three rules, with the consequence it has for the player or for the next person changing the theme or the scores module.
 
-Be accurate about the consequence. A game folder whose `game.ts` has no default export, or whose `id` differs from its folder name, makes `src/games/index.ts` throw when the midway loads, and `src/games/index.test.ts` fails, so `npm run check` already catches both: do not report them. A game that is not in a `game.ts` inside its own folder gets no booth, and nothing fails.
+Be accurate about the consequence. A game folder whose `game.ts` has no default export, or whose `id` differs from its folder name, makes `src/games/index.ts` throw when the midway loads, and `src/games/index.test.ts` fails, so `npm run check` already catches both: do not report them. A folder directly under `src/games/` with no `game.ts`, such as one with only `index.ts`, is also caught: `src/games/index.test.ts` compares every such folder with the registered ids, so do not report that either. Only game code that neither discovery nor that test sees gets no booth with nothing failing: a file directly in `src/games/`, such as `src/games/new-game.ts`, or a `game.ts` nested deeper than `src/games/<game-id>/game.ts` inside a folder that already holds a game, such as `src/games/water-cannon/bonus/game.ts`. Report those.
 
 Do not report:
 
