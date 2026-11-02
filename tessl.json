@@ -1,4 +1,5 @@
 {
+  "name": "workspace-208/tessl-carnival",
   "schedules": {
     "doc-gardening": {
       "cron": "0 6 * * 1",
